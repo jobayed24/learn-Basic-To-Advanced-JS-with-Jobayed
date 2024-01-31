@@ -1,26 +1,15 @@
-let controller;
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-const url="https://www.youtube.com/watch?v=oDpDXsXQoNg";
-let downloadBtn=document.getElementById("download");
-let cancelButton=document.getElementById("cancel");
+function printList(){
+    let text="<ul>";
+    let getDemo=document.querySelector("#demo");
 
-downloadBtn.addEventListener("click",startDownloading)
-cancelButton.addEventListener("click",()=>{
-   if(controller){
-    controller.abort();
-    console.log("download aborted")
-   }
-
-})
-function startDownloading(){
-    controller=new AbortController();
-    let signal=controller.signal;
-    fetch(url,{signal})
-        .then((respons)=>{
-            console.log("Download Completed",respons)
-        })
-        .catch((err)=>{
-            console.log(`Download errr: ${err.message}`)
-        })
-        
+    
+    for(let i=0;i<fruits.length; i++){
+        text+="<li>"+fruits[i]+"</li>";
+    }
+    text+="</ul>"
+    
+    getDemo.innerHTML=text;
 }
+printList()
