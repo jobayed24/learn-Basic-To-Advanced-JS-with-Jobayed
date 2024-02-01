@@ -1,19 +1,5 @@
-const survey = [
-    { name: "Steve", answer: "No"},
-    { name: "Jessica", answer: "Yes"},
-    { name: "Peter", answer: "Yes"},
-    { name: "Elaine", answer: "Yes"}
-  ];
+const array1 = [1, 2, 3, 4];
 
+const getFillArray1=array1.fill(0,2)
 
-  const getIsTrue=survey.every(isPassed);
-
-  function isPassed(value,index,arr){
-    if(index===0){
-        return true;
-    }else{
-        return (value.answer===arr[index-1].answer)
-    }
-  }
-
-  console.log(getIsTrue)
+console.log(array1)
