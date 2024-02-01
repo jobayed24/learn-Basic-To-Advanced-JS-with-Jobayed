@@ -1,10 +1,12 @@
+
+
 const arr = ["a", , "c"];
+// object.keys gives key of array remove hole from array
+const getArrayValue=Object.keys(arr);
 
-const getArrayValue=arr.keys(arr);
+// let text="";
+// for(x of getArrayValue){
+//     text+=x;
+// }
 
-let text="";
-for(x of getArrayValue){
-    text+=x;
-}
-
-console.log(text)
+console.log(getArrayValue)
