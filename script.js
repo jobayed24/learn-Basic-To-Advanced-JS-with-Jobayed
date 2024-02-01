@@ -1,13 +1,19 @@
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const survey = [
+    { name: "Steve", answer: "No"},
+    { name: "Jessica", answer: "Yes"},
+    { name: "Peter", answer: "Yes"},
+    { name: "Elaine", answer: "Yes"}
+  ];
 
-function printList(){
-    let text="<ul>";
-    let getDemo=document.querySelector("#demo");
-    fruits.forEach((ele)=>{
-       return text+="<li>"+ele+"</li>"
-    })
-    text+="</ul>"
-    
-    getDemo.innerHTML=text;
-}
-printList()
+
+  const getIsTrue=survey.every(isPassed);
+
+  function isPassed(value,index,arr){
+    if(index===0){
+        return true;
+    }else{
+        return (value.answer===arr[index-1].answer)
+    }
+  }
+
+  console.log(getIsTrue)
