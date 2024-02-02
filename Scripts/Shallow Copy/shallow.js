@@ -1,6 +1,8 @@
 const a = { x: 0, y: { z: 0 } };
 
+//deep copy
+const deepCopyA=JSON.parse(JSON.stringify(a))
 
-const b=Object.assign({},a);
+deepCopyA.y.z="10";
 
-console.log(b.y)
+console.log(deepCopyA.y.z)
