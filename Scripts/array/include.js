@@ -1,6 +1,12 @@
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const inventory = [
+    { name: "apples", quantity: 2 },
+    { name: "bananas", quantity: 0 },
+    { name: "cherries", quantity: 5 },
+  ];
 
+  function isCherish(fruit){
+    return fruit.name==="cherries"
+  }
+  const getCheris=inventory.find(isCherish)
 
-const isTrue=fruits.includes("Banana");
-
-console.log(isTrue)
+  console.log(getCheris)
