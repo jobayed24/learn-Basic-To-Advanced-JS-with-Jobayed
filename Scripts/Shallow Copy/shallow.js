@@ -1,5 +1,5 @@
 const fruits = ["Strawberry", "Mango"];
-// using arrayfrom for taking shallow copy
-const fruitsShallowCopy=Array.from(fruits);
+// using fruits slice for taking shallow copy
+const fruitsShallowCopy=fruits.slice();
 
 console.log(fruitsShallowCopy)
