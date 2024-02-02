@@ -1,6 +1,5 @@
 const fruits = ["Strawberry", "Mango"];
-// spread operator
-const getFruitsList=[...fruits];
-const addFruits=getFruitsList.push("jk");
+// using arrayfrom for taking shallow copy
+const fruitsShallowCopy=Array.from(fruits);
 
-console.log(getFruitsList)
+console.log(fruitsShallowCopy)
