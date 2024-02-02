@@ -1,5 +1,6 @@
-const fruits = ["Strawberry", "Mango"];
-// using fruits slice for taking shallow copy
-const fruitsShallowCopy=fruits.slice();
+const a = { x: 0, y: { z: 0 } };
 
-console.log(fruitsShallowCopy)
+
+const b=Object.assign({},a);
+
+console.log(b.y)
