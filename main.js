@@ -1,5 +1,11 @@
-let x=0;
-
-function myOnScrollFn(){
-    document.getElementById("demo").innerHTML=x+=1;
+function mySearchFn(){
+    let getMySearch=document.getElementById("mySearch");
+  
+    if(getMySearch.value!=""){
+        document.getElementById("demo").innerHTML="You are Search for: "+getMySearch.value;
+    }else{
+        document.getElementById("demo").innerHTML=""
+    }
+    
 }
+
