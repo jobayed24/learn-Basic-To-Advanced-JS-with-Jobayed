@@ -1,8 +1,10 @@
-let getCopiedElement=document.getElementById("copied");
-function myOncopyFn(){
-    getCopiedElement.style.display="inline";
-    function disableStyle(){
-        getCopiedElement.style.display="none";
+let myInputField=document.getElementById("myInputField");
+
+function myOnCopyFn(){
+    document.getElementById("demo").innerHTML="<span>"+myInputField.value+"</span>"
+    function clearDemoDiv(){
+        document.getElementById("demo").innerHTML=""
     }
-    setTimeout(disableStyle,3000)
+
+    setTimeout(clearDemoDiv,3000)
 }
