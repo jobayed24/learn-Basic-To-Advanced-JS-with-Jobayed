@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <style>
-
+        #myInputField {
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+        }
     </style>
 </head>
 
 <body>
-    <div id="myInputField" onmouseleave="myOnMouseLeaveFn()" onmouseenter="myOnMouseEneterFn()">
+    <h2>Move your cursor into the blank hools to get the result:</h2>
+    <div onmousemove="myOnMouseMove(event)" onmouseout="myOnMouseOut()" id="myInputField">
 
-        this is db click jobayed
     </div>
 
 
