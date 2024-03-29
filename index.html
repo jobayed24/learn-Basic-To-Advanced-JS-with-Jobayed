@@ -5,23 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <style>
-        #mySearch {
-            padding: 20px;
-            box-shadow: 3px 4px 3px 5px lightblue;
-            color: blue;
+        #copy {
+            border: 1px solid black;
+            padding: 3px 5px;
+            background-color: lightgray;
+            border-radius: 3px;
+            cursor: pointer;
         }
 
-        #mySearch:focus {
-            outline: none;
-            border: none;
+        #clipBoard {
+            margin-top: 30px;
+        }
 
+        #copied {
+            display: none;
+            padding: 3px 5px;
+            background-color: lightblue;
+            margin: 2px;
         }
     </style>
 </head>
 
-<body onresize="myOnResizeFn()">
+<body>
 
-
+    <div id="clipBoard">Copy the text <span onclick="myOncopyFn()" id="copy">copy </span><span id="copied">copied</span>
+    </div>
 
     <div id="demo"></div>
 </body>

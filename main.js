@@ -1,7 +1,8 @@
-let getDemoDiv=document.getElementById("demo");
-
-getDemoDiv.innerHTML="Innner Height:"+window.innerHeight+"<br />"+"InnerWidth:"+window.innerWidth;
-
-function myOnResizeFn(){
-    getDemoDiv.innerHTML="Innner Height:"+window.innerHeight+"<br />"+"InnerWidth:"+window.innerWidth;
+let getCopiedElement=document.getElementById("copied");
+function myOncopyFn(){
+    getCopiedElement.style.display="inline";
+    function disableStyle(){
+        getCopiedElement.style.display="none";
+    }
+    setTimeout(disableStyle,3000)
 }
