@@ -5,23 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <style>
-        #myInputField {
-            height: 200px;
-            width: 300px;
-            border: 1px solid black;
+        .box {
+            text-align: center;
+            color: gray
+        }
+
+        #map {
+            color: white
+        }
+
+        body {
+            background-color: pink;
         }
     </style>
 </head>
 
 <body>
-    <h2>Move your cursor into the blank hools to get the result:</h2>
-    <div onmousemove="myOnMouseMove(event)" onmouseout="myOnMouseOut()" id="myInputField">
-
+    <div class="container">
+        <h2 class="box">
+            <p>Learn JS <span id="map">Map</span> With Jobayed</p>
+        </h2>
     </div>
 
 
-    <div id="demo"></div>
+    <div id="demo">
+        <ul id="ul">
+
+        </ul>
+    </div>
 </body>
+
 <script src="main.js"></script>
 
 </html>

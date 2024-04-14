@@ -1,14 +1,11 @@
+const str = "The quick red fox jumped over the lazy dog's back";
 
-function myOnMouseOut(){
-    document.getElementById('demo').innerText=""
+
+
+function returnLastString(str){
+    return str.at(-1)
 }
 
-function myOnMouseMove(e){
-    
-    let x=e.clientX;
-    let y=e.clientY;
-  
-   
-    let color="Coordinate: "+x+" "+y;
-    document.getElementById("demo").innerText=color
-}
+
+
+console.log(returnLastString(str))
