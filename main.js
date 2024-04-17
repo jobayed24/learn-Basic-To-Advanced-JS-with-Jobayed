@@ -1,3 +1,4 @@
-const str1 = 'Cats are the best!';
+console.log('a'.localeCompare('b')) //-1 reference string occure before the compare string
+console.log('a'.localeCompare('a'))/// 0 when reference string and compare sting both are equivalent
 
-console.log(str1.endsWith('best', (str1.length-1)));
+console.log('b'.localeCompare('a')) // 1 reference string occure after the compare string
