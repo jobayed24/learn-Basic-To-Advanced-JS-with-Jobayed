@@ -1,4 +1,13 @@
-console.log('a'.localeCompare('b')) //-1 reference string occure before the compare string
-console.log('a'.localeCompare('a'))/// 0 when reference string and compare sting both are equivalent
+const user=['jobayed','jonayed','j','tanvir','taju','shakhwat','rasel','raju','riaz'];
 
-console.log('b'.localeCompare('a')) // 1 reference string occure after the compare string
+function onFilter(event){
+    
+  let filterVlaue=  user.filter((value)=>value.includes(event.target.value))
+    if(filterVlaue.length!==user.length){
+    document.getElementById('showData').innerHTML=filterVlaue;
+    document.getElementById('lengthShow').innerHTML=filterVlaue.length+" Matches";
+    }else{
+        document.getElementById('showData').innerHTML=''
+        document.getElementById('lengthShow').innerHTML=''
+    }
+}
