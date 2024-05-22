@@ -1,11 +1,15 @@
-
-function saySomething(resolve){
-    // throw Error('there was an error')
-    console.log(resolve)
-    
+function myDisplayer(some){
+    document.getElementById('demo').innerText=some
 }
-const wait=(ms)=> new Promise((resolve)=>setTimeout(resolve, ms))
 
-wait(3*1000)
-    .then(()=>saySomething('hey this is jobayed'))
-    .catch((err)=>console.log(err))
+function mySum(a,b,callback){
+    let sum= a+b;
+  setTimeout(() => {
+    callback(sum)
+  }, 2000);
+  throw Error('there are an error')
+
+}
+
+
+let value=mySum(5,6,myDisplayer)
