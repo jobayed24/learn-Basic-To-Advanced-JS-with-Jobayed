@@ -17,6 +17,6 @@ function doSomethingElse(newResult){
 doSomething()
     .then((result)=> doSomethingElse(result))
     .then((newResult)=>console.log(newResult))
-    .then(null,function(error){
+    .then(null,function(error){//omit catch use then(null,callback) instead of cath
         console.log(error.message)
     })
