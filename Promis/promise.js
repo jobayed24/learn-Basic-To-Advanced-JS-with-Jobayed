@@ -1,15 +1,22 @@
-function myDisplayer(some){
-    document.getElementById('demo').innerText=some
+function doSomething() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        // Other things to do before completion of the promise
+        console.log("Did something");
+        // The fulfillment value of the promise
+        resolve("https://example.com/");
+      }, 2000);
+    });
+  }
+function doSomethingElse(newResult){
+    return new Promise((resolve)=>{
+        throw Error('there was an error occured')
+        resolve(newResult)
+    })
 }
-
-function mySum(a,b,callback){
-    let sum= a+b;
-  setTimeout(() => {
-    callback(sum)
-  }, 2000);
-  throw Error('there are an error')
-
-}
-
-
-let value=mySum(5,6,myDisplayer)
+doSomething()
+    .then((result)=> doSomethingElse(result))
+    .then((newResult)=>console.log(newResult))
+    .then(null,function(error){
+        console.log(error.message)
+    })
