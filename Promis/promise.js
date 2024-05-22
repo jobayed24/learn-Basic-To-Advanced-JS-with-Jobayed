@@ -1,22 +1,23 @@
-function doSomething() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        // Other things to do before completion of the promise
-        console.log("Did something");
-        // The fulfillment value of the promise
-        resolve("https://example.com/");
-      }, 2000);
-    });
-  }
-function doSomethingElse(newResult){
-    return new Promise((resolve)=>{
-        throw Error('there was an error occured')
-        resolve(newResult)
-    })
+const ingredients=[];
+
+function doSomething(url){
+    const promise= new Promise((resolve)=>resolve(url))
+    return promise
 }
-doSomething()
-    .then((result)=> doSomethingElse(result))
-    .then((newResult)=>console.log(newResult))
-    .then(null,function(error){//omit catch use then(null,callback) instead of cath
-        console.log(error.message)
+const dataFetch=async (result)=>{
+    const response=await fetch(result);
+    const datas= await response.json();
+    return datas
+}
+doSomething('https://dummyjson.com/products')
+    .then(async(result)=>{
+           return dataFetch(result)  // to get the value in second callback or promise must return previous promise
+                .then((datas)=>datas.products)
+                .then((products)=>{
+                    ingredients.push(...products)
+            })
+        
     })
+    .then((data)=>console.log(ingredients))
+
+    // console.log(ingredients)
