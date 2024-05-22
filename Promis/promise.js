@@ -1,9 +1,11 @@
-function saySomthing(data){
-    console.log(data)
-    throw Error('there is an error')
+
+function saySomething(resolve){
+    // throw Error('there was an error')
+    console.log(resolve)
     
 }
+const wait=(ms)=> new Promise((resolve)=>setTimeout(resolve, ms))
 
-setTimeout(() => {
-    saySomthing('hello jobayed')
-}, 5*1000);
+wait(3*1000)
+    .then(()=>saySomething('hey this is jobayed'))
+    .catch((err)=>console.log(err))
