@@ -1,19 +1,11 @@
-const debo=true;
+const wait = (ms) =>new Promise((resolve)=>setTimeout(resolve, ms))
 
-const promis=new Promise((resovle,reject)=>{
-    if(debo){
-        resovle('এই নে কলম')
-    }else{
-        reject('না আমি দেব না')
-    }
-})
 
-promis.then((kolom)=>{
-    console.log(kolom)
-    return 'এখন খাতায় লেখ'
-}).then((result)=>{
-    console.log(result)
-    console.log('আচ্ছা লিখতেছি')
-}).catch((error)=>console.log(error))
+wait(0)
+    .then(()=>console.log('promise'))
 
-console.log('synchronous call')
+    Promise.resolve()
+        .then(()=>console.log('promise1'))
+        .then(()=>console.log('promise2'))
+
+        console.log('synch') //synchronous
