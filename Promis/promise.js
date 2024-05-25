@@ -1,29 +1,30 @@
-const p1 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("one"), 1000);
-  });
-  const p2 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("two"), 2000);
-  });
-  const p3 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("three"), 3000);
-  });
-  const p4 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("four"), 4000);
-  });
-  const p5 = new Promise((resolve, reject) => {
-    reject(new Error("reject"));
-  });
+async function fetchAndDecode(id) {
+    const res = await fetch(`https://dummyjson.com/products`);
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const data = await res.json();
+    return data.products
+  }
   
-  // Using .catch:
-  //set error function to handle error 
+  const product1 = fetchAndDecode();
+  // const product2= fetchAndDecode(2)
 
-  Promise.all([p1.catch((error)=>error), p2.catch((error)=>error), p3.catch((error)=>error), p4.catch((error)=>error), p5.catch((error)=>error)])
-    .then((values) => {
-      values.forEach((values)=>console.log(values))
-
-    })
-   
   
-  // Logs:
-  // "reject"
+  Promise.any([product1])
+        .then((products) => {
+          console.log(products)
+            products.map((product)=>{
+                
+            const image = document.createElement("img");
+            image.src = product.thumbnail;
+            image.alt = product.title;
+            document.body.appendChild(image);
+            })
+            // const objectURL = URL.createObjectURL(product.thumbnail);
+         
+        })
+    .catch((e) => {
+      console.error(e.message);
+    });
   
