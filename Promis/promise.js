@@ -1,30 +1,23 @@
-async function fetchAndDecode(id) {
-    const res = await fetch(`https://dummyjson.com/products`);
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const data = await res.json();
-    return data.products
-  }
-  
-  const product1 = fetchAndDecode();
-  // const product2= fetchAndDecode(2)
-
-  
-  Promise.any([product1])
-        .then((products) => {
-          console.log(products)
-            products.map((product)=>{
-                
-            const image = document.createElement("img");
-            image.src = product.thumbnail;
-            image.alt = product.title;
-            document.body.appendChild(image);
-            })
-            // const objectURL = URL.createObjectURL(product.thumbnail);
-         
-        })
-    .catch((e) => {
-      console.error(e.message);
-    });
-  
+let isLoading = true;
+const fetchdata =async(url)=>{
+  const reponse=await fetch(url);
+  return reponse;
+}
+fetchdata(`https://dummyjson.com/products`)
+  .then((response)=>{
+      const contentType= response.headers.get('Content-Type')
+      if(contentType && contentType.includes('application/json')){
+        return response.json();
+      }else{
+        new Error('we are not getting json object')
+      }
+  })
+  .then((json) => {
+      console.log(json)
+  })
+  .catch((error) => {
+    console.error(error); // this line can also throw, e.g. when console = {}
+  })
+  .finally(() => {
+    isLoading = false;
+  });
