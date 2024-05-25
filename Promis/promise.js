@@ -1,23 +1,12 @@
-let isLoading = true;
-const fetchdata =async(url)=>{
-  const reponse=await fetch(url);
-  return reponse;
-}
-fetchdata(`https://dummyjson.com/products`)
-  .then((response)=>{
-      const contentType= response.headers.get('Content-Type')
-      if(contentType && contentType.includes('application/json')){
-        return response.json();
-      }else{
-        new Error('we are not getting json object')
-      }
+const data = Promise.race([
+  fetch("https://dummyjson.com/products/1"),
+  new Promise((resolve, reject) => {
+    // Reject after 5 seconds
+    setTimeout(() => reject(new Error("Request timed out")), 5000);
+  }),
+])
+  .then(async(res) => {
+    const data=await res.json();
+    console.log(data)
   })
-  .then((json) => {
-      console.log(json)
-  })
-  .catch((error) => {
-    console.error(error); // this line can also throw, e.g. when console = {}
-  })
-  .finally(() => {
-    isLoading = false;
-  });
+  .catch((err) => console.log(err));
