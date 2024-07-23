@@ -1,12 +1,11 @@
+//reserved characters
 
-function seccessFullCallback(result){
-  console.log(`audio file ready at url: ${result}`)
-}
-function failurCallback(error){
-  console.error(`error generating audio file: ${error}`)
-}
-///callback system
-createAudioFileAsync(audiSetting,seccessFullCallback,failurCallback)
-/// promis and asynchronous behavior
+const name="Tom & Jerry";
 
-createAudioFileAsync(audioSetting).then(successfullCallback,failurCallback)
+const myUrl=`http://example.com/?resouce=${encodeURIComponent(name)}`
+
+const links=encodeURI(myUrl);
+const decodeURl=decodeURI(links)
+const decodelinks=decodeURIComponent(links);
+
+console.log(decodelinks)
