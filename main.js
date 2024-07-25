@@ -1,15 +1,14 @@
-const ages= Object.create(null,{
-    alice: {value: 18},
-    bob: {value: 20}
-});
+const inventory = [
+    { name: "asparagus", type: "vegetables", quantity: 5 },
+    { name: "bananas", type: "fruit", quantity: 0 },
+    { name: "goat", type: "meat", quantity: 23 },
+    { name: "cherries", type: "fruit", quantity: 5 },
+    { name: "fish", type: "meat", quantity: 22 },
+    { name: 'aspiran',type: 'vegetables',quantity: 34}
+  ];
 
-function hasPerson(name){
-    console.log(name in ages);
+const result=Object.groupBy(inventory,StockFn);
+function StockFn({quantity}){
+    return quantity>5 ? "ok" : "restock";
 }
-
-function age(age){
-    console.log(ages[age])
-}
-
-hasPerson('hasOwnProperty')
-age('toString')
+console.log(result)
