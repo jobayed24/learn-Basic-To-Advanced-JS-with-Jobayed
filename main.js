@@ -1,11 +1,15 @@
-//reserved characters
+const ages= Object.create(null,{
+    alice: {value: 18},
+    bob: {value: 20}
+});
 
-const name="Tom & Jerry";
+function hasPerson(name){
+    console.log(name in ages);
+}
 
-const myUrl=`http://example.com/?resouce=${encodeURIComponent(name)}`
+function age(age){
+    console.log(ages[age])
+}
 
-const links=encodeURI(myUrl);
-const decodeURl=decodeURI(links)
-const decodelinks=decodeURIComponent(links);
-
-console.log(decodelinks)
+hasPerson('hasOwnProperty')
+age('toString')
