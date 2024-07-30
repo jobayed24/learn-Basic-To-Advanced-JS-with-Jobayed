@@ -1,14 +1,15 @@
-const inventory = [
-    { name: "asparagus", type: "vegetables", quantity: 5 },
-    { name: "bananas", type: "fruit", quantity: 0 },
-    { name: "goat", type: "meat", quantity: 23 },
-    { name: "cherries", type: "fruit", quantity: 5 },
-    { name: "fish", type: "meat", quantity: 22 },
-    { name: 'aspiran',type: 'vegetables',quantity: 34}
-  ];
-
-const result=Object.groupBy(inventory,StockFn);
-function StockFn({quantity}){
-    return quantity>5 ? "ok" : "restock";
+function getNameAge(){
+    this.name=()=>{
+        return 'This is from Function';
+    };
+    this.age=45;
+    this.profession='doing coding';
+    return {
+        profession: 'doing coding but comes from obj',
+    };
 }
-console.log(result)
+
+const obj=new getNameAge();
+
+console.log(obj.profession)
+
