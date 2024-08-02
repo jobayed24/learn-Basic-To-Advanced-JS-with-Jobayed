@@ -1,13 +1,8 @@
-function outerFunction(){
-  console.log('enter outserFunction')
-  const outerVariable='I am in outside !';
-  function innerFunction(){
-    console.log('enter innerFunction');
-    console.log(outerVariable);    
-  }
-  console.log('ending inner function')
-   innerFunction();
-  console.log('ending outer function')
+function add(c,d){
+  return this.a+this.b+c+d;
 }
 
-outerFunction();
+const o={a: 1,b:2}
+
+const totalValue=add.call(o,10,20)
+console.log(totalValue)
