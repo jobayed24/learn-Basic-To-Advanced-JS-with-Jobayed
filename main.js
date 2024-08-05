@@ -1,13 +1,35 @@
 // 'use strict'
-const obj=Object.defineProperty({},'foo',{
-    value: 1,
-    writable: false,
+const obj={
+    name: 'jobayed',
+    age: 26,
+    maritalStatus: 'married'
+};
+
+const objWithDescriptor=Object.create({},{
+    name:{
+        value : 'jobayed',
+        enumerable: true,
+        writable: true,
+        configurable: true
+    },
+    age: {
+        value:27,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    }
 })
-// obj.foo="2"
-// copy multiple object resource to obj object
-Object.assign(obj,{bar:2},{foo1:'foo1',foo2:'foo2',foo3: 'foo3'},{foo:'this is foo'},{foo6: 'foo6'});
-console.log(obj)
 
-//......Note.....
+// console.log(objWithDescriptor)
 
-//Copy task executed properly untile get error with assign value in read only property
+// objWithDescriptor.name="khandakar";
+// console.log('after modifty the obj value', objWithDescriptor)
+
+//reassign value of age property
+
+objWithDescriptor.age=45
+
+delete objWithDescriptor.name;
+console.log(objWithDescriptor)
+// const objWithEntries=Object.entries(objWithDescriptor)
+// console.log(objWithEntries)
