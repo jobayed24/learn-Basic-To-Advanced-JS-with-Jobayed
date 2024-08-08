@@ -1,35 +1,20 @@
-// 'use strict'
-const obj={
-    name: 'jobayed',
-    age: 26,
-    maritalStatus: 'married'
-};
+//super method
 
-const objWithDescriptor=Object.create({},{
-    name:{
-        value : 'jobayed',
-        enumerable: true,
-        writable: true,
-        configurable: true
-    },
-    age: {
-        value:27,
-        enumerable: true,
-        writable: true,
-        configurable: true
-    }
-})
+function Human(name,level){
+    this.name=name;
+    this.level=level
+}
 
-// console.log(objWithDescriptor)
+// sub method of super class
 
-// objWithDescriptor.name="khandakar";
-// console.log('after modifty the obj value', objWithDescriptor)
+function SuperHero(name,level){
+   Human.call(this,name,level);
+}
+Object.setPrototypeOf(SuperHero.prototype,Human.prototype)
+SuperHero.prototype.fly=function(){
+    return `${this.name} is flying`;
+}
 
-//reassign value of age property
+const superMan=new SuperHero('Jobayed',1);
 
-objWithDescriptor.age=45
-
-delete objWithDescriptor.name;
-console.log(objWithDescriptor)
-// const objWithEntries=Object.entries(objWithDescriptor)
-// console.log(objWithEntries)
+console.log(superMan)
