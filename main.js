@@ -1,20 +1,10 @@
-//super method
-
-function Human(name,level){
+function Shap(name,yourAge){
     this.name=name;
-    this.level=level
+    this.age=yourAge;
+    console.log(`This is ${this.name}. And age is ${23} years.`)
 }
 
-// sub method of super class
+// const o=new Shap('jobayed',23)
 
-function SuperHero(name,level){
-   Human.call(this,name,level);
-}
-Object.setPrototypeOf(SuperHero.prototype,Human.prototype)
-SuperHero.prototype.fly=function(){
-    return `${this.name} is flying`;
-}
-
-const superMan=new SuperHero('Jobayed',1);
-
-console.log(superMan)
+const obj=Object.create(Shap.prototype);
+console.log(obj)
