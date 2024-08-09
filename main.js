@@ -1,10 +1,14 @@
-function Shap(name,yourAge){
-    this.name=name;
-    this.age=yourAge;
-    console.log(`This is ${this.name}. And age is ${23} years.`)
+// how actually you can inherite the constructor property and 
+// method
+
+//Super Parent
+function Parent(){}
+Parent.prototype.callYourName=function(name){
+    console.log(`this is your name ${name}`)
 }
-
-// const o=new Shap('jobayed',23)
-
-const obj=Object.create(Shap.prototype);
-console.log(obj)
+console.log(new Parent())
+// Child constructor 
+function Child(){}
+Child.prototype=Object.create(Parent.prototype);
+console.log(new Child())
+// new Parent().callYourName('jobayed')
