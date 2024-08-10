@@ -1,14 +1,5 @@
-// how actually you can inherite the constructor property and 
-// method
+// null object which do not inherit properties
 
-//Super Parent
-function Parent(){}
-Parent.prototype.callYourName=function(name){
-    console.log(`this is your name ${name}`)
-}
-console.log(new Parent())
-// Child constructor 
-function Child(){}
-Child.prototype=Object.create(Parent.prototype);
-console.log(new Child())
-// new Parent().callYourName('jobayed')
+const obj=Object.create(null);
+obj.name='jobayed';
+console.log(Object.hasOwn(obj,'name'))
