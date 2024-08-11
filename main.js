@@ -1,35 +1,34 @@
-//simple array
-const arr = ["a", "b", "c"];
-// find out the keys of array
-const arrayKeys=Object.keys(arr);
-console.log(arrayKeys)
-//array like object
-const arrayObj={
-  1: 'Orange',
-  2: 'Apple',
-  3: 'Pineapple',
-  4: 'Graps',
+// 'use strict'
+const obj = {
+  prop() {},
+  foo: "bar",
 };
 
-// get-out the keys of arrayObj
-const arrayObjKeys=Object.values(arrayObj)
-console.log(arrayObjKeys);
+obj.foo='pineapple';
+delete obj.prop
+console.log(obj)
+//seal the obj
+// const o=Object.seal(obj);
+// console.log(obj===o)
+obj.foo='jackfruits';
+console.log(obj)
+console.log(Object.isSealed(obj))
 
-//non enumerable property
-const objEnumerable=Object.create({},{
-  getFoo:{
-    value(){
-      return this.foo;
-    },
-  }
+delete obj.foo;
+console.log(obj);
+
+Object.defineProperty(obj,'firstName',{
+  value: 'jobayed hossen',
+  enumerable: true,
+  configurable: true,
+  writable: false
 })
 
-objEnumerable.foo='foo is here';
-// object keys help to get the keys of non numerable property
-console.log(Object.keys(objEnumerable))
+console.log(obj);
 
-for(const objKeys of Object.getOwnPropertyNames(objEnumerable)){
-  console.log(objKeys)
-}
-console.log(Object.getOwnPropertyNames(objEnumerable))
-console.log(Object.values('foo'))
+Object.defineProperty(obj,'firstName',{
+  value: 'Rasel Hayder',
+  writable: true
+})
+obj.firstName="Shakhawat"
+console.log(obj)
