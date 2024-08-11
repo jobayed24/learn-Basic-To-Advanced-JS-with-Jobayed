@@ -1,16 +1,23 @@
-const obj={firstName: 'jobayed',lastName: 'hossen'};
-
-// changing the property descriptor of obj
-Object.defineProperty(obj,'firstName',{
-  enumerable: false,
-  writable: false,
-  configurable: false,
+// define single property in object
+const obj=Object.defineProperty({},'key',{
+  // by default it's not enumerable ,configurable , writable
+  value: 'static',
 })
-if(Object.hasOwnProperty(obj,'firstName')){
-  console.log('jk')
-}else{
-  console.log('the property is not in Obj')
-}
+obj.key='dynamic';
 for(const local in obj){
+  console.log(local)
+}
+console.log(obj.key);
+
+// define two many property with configuration
+const obj1=Object.defineProperties({},{
+  firstName:{
+    value:'jobayed',
+  },
+  lastName:{
+    value: 'hossen'
+  }
+})
+for(const local in obj1){
   console.log(local)
 }
