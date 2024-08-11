@@ -1,34 +1,16 @@
-// 'use strict'
-const obj = {
-  prop() {},
-  foo: "bar",
-};
+const obj={firstName: 'jobayed',lastName: 'hossen'};
 
-obj.foo='pineapple';
-delete obj.prop
-console.log(obj)
-//seal the obj
-// const o=Object.seal(obj);
-// console.log(obj===o)
-obj.foo='jackfruits';
-console.log(obj)
-console.log(Object.isSealed(obj))
-
-delete obj.foo;
-console.log(obj);
-
+// changing the property descriptor of obj
 Object.defineProperty(obj,'firstName',{
-  value: 'jobayed hossen',
-  enumerable: true,
-  configurable: true,
-  writable: false
+  enumerable: false,
+  writable: false,
+  configurable: false,
 })
-
-console.log(obj);
-
-Object.defineProperty(obj,'firstName',{
-  value: 'Rasel Hayder',
-  writable: true
-})
-obj.firstName="Shakhawat"
-console.log(obj)
+if(Object.hasOwnProperty(obj,'firstName')){
+  console.log('jk')
+}else{
+  console.log('the property is not in Obj')
+}
+for(const local in obj){
+  console.log(local)
+}
