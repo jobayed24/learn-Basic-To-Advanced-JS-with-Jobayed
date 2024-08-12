@@ -1,23 +1,28 @@
-// define single property in object
-const obj=Object.defineProperty({},'key',{
-  // by default it's not enumerable ,configurable , writable
-  value: 'static',
-})
-obj.key='dynamic';
-for(const local in obj){
-  console.log(local)
-}
-console.log(obj.key);
+// define object
 
-// define two many property with configuration
-const obj1=Object.defineProperties({},{
-  firstName:{
-    value:'jobayed',
-  },
-  lastName:{
-    value: 'hossen'
-  }
+const o={};
+
+Object.defineProperty(o,'a',{
+  value: 37,
+  enumerable: true,
+  writable: true,
+  configurable: true,
 })
-for(const local in obj1){
-  console.log(local)
-}
+console.log(o);
+let bValue=23;
+Object.defineProperty(o,'b',{
+  value=23,
+  get(){
+    return bValue;
+  },
+  set(propValue){
+    bValue=propValue;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+// o.b(23);
+
+o.b=44;
+console.log(o.b)
