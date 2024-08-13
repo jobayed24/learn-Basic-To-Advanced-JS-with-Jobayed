@@ -1,19 +1,22 @@
-
+// non configurable but writable propery
 const o={};
-let mi='nai';
 Object.defineProperty(o,'a',{
-  get(){
-    return mi;
-  },
-  configurable: true,// when accessor descriptor used in that time if configurable true it you can change the property value and you can add other attributes like set and enumerable etc..
-});
-
-Object.defineProperty(o,'a',{
-  set(setValue){
-    mi=setValue;
-  },
-  enumerable: true,
+  writable: true,
+  configurable: false,
 })
-o.a='hi'// for writable capabilty you should use setter function to reassign the object property value
 
+Object.defineProperty(o,'a',{
+  value: 'hi'
+});
+console.log(o.a);
+
+// toggle the writability
+Object.defineProperty(o,'a',{
+  writable: false,
+})
+// once the writabilty capabity has gone than there is no way to restore the capabity.
+Object.defineProperty(o,'a',{
+  writable: true
+});
+o.a='another';
 console.log(o.a)
