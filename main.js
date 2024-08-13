@@ -1,28 +1,25 @@
-// define object
-
-const o={};
-
-Object.defineProperty(o,'a',{
-  value: 37,
-  enumerable: true,
+// writable object, not delete and changeable of object
+const obj={};
+Object.defineProperty(obj,'firstName',{
+  value: 'jobayed',
   writable: true,
-  configurable: true,
-})
-console.log(o);
-let bValue=23;
-Object.defineProperty(o,'b',{
-  value=23,
-  get(){
-    return bValue;
-  },
-  set(propValue){
-    bValue=propValue;
-  },
   enumerable: true,
-  configurable: true,
+})
+
+console.log(obj);
+const o={};
+let mi='nai';
+Object.defineProperty(o,'a',{
+  get(){
+    return mi;
+  },
+  configurable: true,// when accessor descriptor used in that time if configurable true it you can change the property value and you can add other attributes like set and enumerable etc..
 });
 
-// o.b(23);
-
-o.b=44;
-console.log(o.b)
+o.a='jai'
+for(const lc in o){
+  console.log(lc)
+}
+console.log(o.a)
+o.a='ok';
+console.log(o)
