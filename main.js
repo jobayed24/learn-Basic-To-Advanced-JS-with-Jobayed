@@ -1,22 +1,31 @@
-// non configurable but writable propery
-const o={};
-Object.defineProperty(o,'a',{
-  writable: true,
-  configurable: false,
-})
+// inheritance of property
 
-Object.defineProperty(o,'a',{
-  value: 'hi'
-});
-console.log(o.a);
+function Myclass(){
+  // it's look like a global variable access the value in different object ...
+  let fName='jobayed';
+  let lName='hossen';
+  Object.defineProperty(Myclass.prototype,'firstName',{
+    get(){
+      return fName;
+    },
+    set(value){
+      fName=value;
+    },
+    configurable: true
+  });
+  Object.defineProperty(Myclass.prototype,'lastName',{
+    get(){
+      return lName;
+    },
+    set(value){
+      lName=value;
+    },
+    configurable: true
+  });
+};
 
-// toggle the writability
-Object.defineProperty(o,'a',{
-  writable: false,
-})
-// once the writabilty capabity has gone than there is no way to restore the capabity.
-Object.defineProperty(o,'a',{
-  writable: true
-});
-o.a='another';
-console.log(o.a)
+const obj1=new Myclass();
+const obj2=new Myclass();
+
+obj1.firstName='ohidur rahman';
+console.log(obj2.firstName)
