@@ -1,35 +1,17 @@
-//  inheritance of property but stroing value in same name which will be different in each instance
-
-//function your name and age 
-
-function YourNameAge(){
-  Object.defineProperty(YourNameAge.prototype,'Name',{
-    get(){
-      return this.name;
-    },
-    set(value){
-      this.name=value;
-    },
-    configurable: true,
-  });
-  Object.defineProperty(YourNameAge.prototype,'Age',{
-    get(){
-      return this.age;
-    },
-    set(value){
-      this.age=value;
-    },
-    configurable: true,
-  });
+// when we assign value in prototype chain then it will store the value in prototype but when in same name we assign the value in object then it store in object not  prototype chain that's it...
+function MyName(){
+  MyName.prototype.fname='jobayed';
+  Object.defineProperty(MyName.prototype,'name',{
+    value: 'ohidur',
+    writable: true,
+  })
 }
-const obj1=new YourNameAge();
-obj1.Name='jobayed';
-obj1.Age=24;
-console.log(obj1.Name);
-console.log(obj1.Age);
-const obj2=new YourNameAge();
-obj2.Name='ohidur';
-obj2.Age=56;
-console.log(obj2.Name);
-console.log(obj2.Age);
 
+const obj1=new MyName();
+console.log(obj1)
+console.log(obj1.fname);
+obj1.fname='hossain';
+console.log(obj1.fname);
+console.log(obj1.name);
+obj1.name='tanvir';
+console.log(obj1.name)
