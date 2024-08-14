@@ -1,31 +1,35 @@
-// inheritance of property
+//  inheritance of property but stroing value in same name which will be different in each instance
 
-function Myclass(){
-  // it's look like a global variable access the value in different object ...
-  let fName='jobayed';
-  let lName='hossen';
-  Object.defineProperty(Myclass.prototype,'firstName',{
+//function your name and age 
+
+function YourNameAge(){
+  Object.defineProperty(YourNameAge.prototype,'Name',{
     get(){
-      return fName;
+      return this.name;
     },
     set(value){
-      fName=value;
+      this.name=value;
     },
-    configurable: true
+    configurable: true,
   });
-  Object.defineProperty(Myclass.prototype,'lastName',{
+  Object.defineProperty(YourNameAge.prototype,'Age',{
     get(){
-      return lName;
+      return this.age;
     },
     set(value){
-      lName=value;
+      this.age=value;
     },
-    configurable: true
+    configurable: true,
   });
-};
+}
+const obj1=new YourNameAge();
+obj1.Name='jobayed';
+obj1.Age=24;
+console.log(obj1.Name);
+console.log(obj1.Age);
+const obj2=new YourNameAge();
+obj2.Name='ohidur';
+obj2.Age=56;
+console.log(obj2.Name);
+console.log(obj2.Age);
 
-const obj1=new Myclass();
-const obj2=new Myclass();
-
-obj1.firstName='ohidur rahman';
-console.log(obj2.firstName)
