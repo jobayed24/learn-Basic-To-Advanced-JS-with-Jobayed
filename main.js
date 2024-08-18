@@ -1,12 +1,27 @@
+const person = {
+  name: "Alice",
+  details: {
+    age: 30,
+    gender: "female"
+  }
+};
+// making function for deep freez..
 
-function seccessFullCallback(result){
-  console.log(`audio file ready at url: ${result}`)
-}
-function failurCallback(error){
-  console.error(`error generating audio file: ${error}`)
-}
-///callback system
-createAudioFileAsync(audiSetting,seccessFullCallback,failurCallback)
-/// promis and asynchronous behavior
+function deepFreez(object){
+  const personProperty=Object.getOwnPropertyNames(object);
 
-createAudioFileAsync(audioSetting).then(successfullCallback,failurCallback)
+  for(const obProperty of personProperty){
+    const value=object[obProperty];
+
+    if(value && typeof value==='object'){
+      deepFreez(value)
+      
+    }
+  }
+  return Object.freeze(object)
+}
+
+
+deepFreez(person);
+
+console.log(person.details)
