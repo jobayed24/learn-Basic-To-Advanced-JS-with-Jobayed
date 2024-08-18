@@ -1,22 +1,27 @@
-// converting an object to a map
-// map constructor accept iteable of entries
+const person = {
+  name: "Alice",
+  details: {
+    age: 30,
+    gender: "female"
+  }
+};
+// making function for deep freez..
 
-const obj = { foo: "bar", baz: 42 };
-const objMap=new Map(Object.entries(obj));
-console.log(objMap);
+function deepFreez(object){
+  const personProperty=Object.getOwnPropertyNames(object);
 
-//iterating through  a map
-// using array destructuring you can iterate through object easily
+  for(const obProperty of personProperty){
+    const value=object[obProperty];
 
-const obj1 = { a: 5, b: 7, c: 9 };
-// using for of loop
-for(const [key,value] of Object.entries(obj1)){
-  console.log(value)
+    if(value && typeof value==='object'){
+      deepFreez(value)
+      
+    }
+  }
+  return Object.freeze(object)
 }
 
-// using array method
 
-Object.entries(obj1).forEach(([key,value])=>{
-  console.log(`the key is ${key} and value is ${value}`)
-})
+deepFreez(person);
 
+console.log(person.details)
