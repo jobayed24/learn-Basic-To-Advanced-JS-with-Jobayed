@@ -1,10 +1,17 @@
-function Animal() {}
-function Mammal() {}
-function Dog() {}
+//security ensure and validity checks
 
-Mammal.prototype=Object.create(Animal.prototype);
-Dog.prototype=Object.create(Mammal.prototype);
+function SecurEntity(){};
 
-let myDog=new Dog();
+let secureObj=Object.create(SecurEntity.prototype);
 
-console.log(Dog.prototype.isPrototypeOf(myDog));
+function performSecurOpearation(ob){
+    if(SecurEntity.prototype.isPrototypeOf(ob)){
+        console.log('operation allowed');
+    }else{
+        console.log("Opration not allowed")
+    }
+}
+
+performSecurOpearation(secureObj);
+// performSecurOpearation({})
+
