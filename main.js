@@ -48,17 +48,32 @@ function processContent(content){
         console.log('processing Video '+content.title+"["+content.duration+"]");
     }else if(Image.prototype.isPrototypeOf(content)){
         console.log('processing Image '+content.title+"["+content.dimension+"]");
+    }else if(Podcast.prototype.isPrototypeOf(content)){
+        console.log('processing Podcast',content.title)
     } else{
         console.log('Unknown content type');
     }
 }
 
-processContent('article',article)
-processContent('video',video)
-processContent('image',image)
+processContent(article)
+processContent(video)
+processContent(image)
 
 // Extending functionality
 
+// add podcast feature using baseclass
+function Podcast(title,author,length){
+    ContentItem.call(this,title,author);
+    this.length=length;
+}
+
+Podcast.prototype=Object.create(ContentItem.prototype);
+
+Podcast.prototype.constructor=Podcast;
+
+let podCast=new Podcast('JavaScript insight','BoB brown','30 minutes');
+
+processContent(podCast)
 
 
 
