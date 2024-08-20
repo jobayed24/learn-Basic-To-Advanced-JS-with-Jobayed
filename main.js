@@ -1,7 +1,10 @@
-const example = { foo: true, bar: true };
-Object.prototype.name='jk'
-for(const lc in example){
-  if(Object.hasOwn(example,lc)){
-    console.log(lc)
-  }
-}
+function Animal() {}
+function Mammal() {}
+function Dog() {}
+
+Mammal.prototype=Object.create(Animal.prototype);
+Dog.prototype=Object.create(Mammal.prototype);
+
+let myDog=new Dog();
+
+console.log(Dog.prototype.isPrototypeOf(myDog));
