@@ -1,17 +1,16 @@
-//security ensure and validity checks
+//Ensure compatibility and in Frameworks and liberies
 
-function SecurEntity(){};
+function Plugin(){};
 
-let secureObj=Object.create(SecurEntity.prototype);
-
-function performSecurOpearation(ob){
-    if(SecurEntity.prototype.isPrototypeOf(ob)){
-        console.log('operation allowed');
+const plugin=new Plugin();
+function pluginRegistration(checkObj,mainObj){
+    if( mainObj.prototype.isPrototypeOf(checkObj)){
+        console.log('plugin registration successfully');
     }else{
-        console.log("Opration not allowed")
+        console.log('invalid plugin');
     }
 }
 
-performSecurOpearation(secureObj);
-// performSecurOpearation({})
+const inheritedObj=Object.create(Plugin.prototype);
 
+pluginRegistration(inheritedObj,Plugin)
