@@ -1,81 +1,27 @@
-//small project related CMS
-// here we will make Article ,video ,images
+'use strict'
+const employee = {
+    name: "Mayank",
+    designation: "Developer",
+    address: {
+      street: "Rohini",
+      city: "Delhi",
+    },
+  };
 
-// base class 
-function ContentItem(title,author){
-    this.title=title;
-    this.author=author;
-};
-
-// Article subClass
-function Article(title,author,content){
-    ContentItem.call(this,title,author)
-    this.content=content;
+  
+deepFreez(employee);
+employee.address.city="dhaka";
+console.log(employee.address.city)
+// define a function which help freez a object recursively cause object.freez works for object immediate property if the property it's a object then it's doesn't work 
+function deepFreez(obj){
+    Object.getOwnPropertyNames(obj).forEach((key)=>{
+        if(obj[key].constructor.name==='Object'){
+            if(obj[key]==='window'){
+                return;
+            }
+            deepFreez(obj[key])
+        }
+    })
+   return Object.freeze(obj)
 }
-
-Article.prototype=Object.create(ContentItem.prototype);
-Article.prototype.constructor=Article
-
-//Video class
-function Video(title,author,duration){
-    ContentItem.call(this,title,author);
-    this.duration=duration;
-}
-
-Video.prototype=Object.create(ContentItem.prototype);
-Video.prototype.constructor=Video;
-
-//Image Class
-function Image(title,author,dimension){
-    ContentItem.call(this,title,author);
-    this.dimension=dimension;
-}
-
-Image.prototype=Object.create(ContentItem.prototype);
-Image.prototype.constructor=Image;
-// const contentItem=new ContentItem('test 1','jobayed');
-
-// create content instance
-
-let article = new Article("JavaScript Best Practices", "John Doe", "Lorem ipsum...");
-let video = new Video("Learn JavaScript", "Jane Smith", "15:30");
-let image = new Image("Beautiful Landscape", "Alice Johnson", "1920x1080");
-
-function processContent(content){
-    if(Article.prototype.isPrototypeOf(content)){
-        console.log('processing Article '+content.title);
-    }else if(Video.prototype.isPrototypeOf(content)){
-        console.log('processing Video '+content.title+"["+content.duration+"]");
-    }else if(Image.prototype.isPrototypeOf(content)){
-        console.log('processing Image '+content.title+"["+content.dimension+"]");
-    }else if(Podcast.prototype.isPrototypeOf(content)){
-        console.log('processing Podcast',content.title)
-    } else{
-        console.log('Unknown content type');
-    }
-}
-
-processContent(article)
-processContent(video)
-processContent(image)
-
-// Extending functionality
-
-// add podcast feature using baseclass
-function Podcast(title,author,length){
-    ContentItem.call(this,title,author);
-    this.length=length;
-}
-
-Podcast.prototype=Object.create(ContentItem.prototype);
-
-Podcast.prototype.constructor=Podcast;
-
-let podCast=new Podcast('JavaScript insight','BoB brown','30 minutes');
-
-processContent(podCast)
-
-
-
-
 
