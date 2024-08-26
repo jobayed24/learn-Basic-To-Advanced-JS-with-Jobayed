@@ -1,14 +1,11 @@
-class Box {
-    #value;
-    constructor(value) {
-      this.#value = value;
+function TellName(value){
+    this.value=value;
+ function valueOf(){
+        return this.value;
     }
-    valueOf() {
-      return this.#value;
-    }
-  }
+ 
+}
 
-  const box = new Box(23);
+const name=new TellName('jobayed');
 
-console.log(box+ 23)// here Box is return valueOf() as toString()
-console.log(box+' hi') //here box is return toString() for value
+console.log(name +'jk')
