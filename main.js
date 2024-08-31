@@ -1,3 +1,5 @@
+//How to use the static method, static prop, and parent to child property method
+
 // // Parent consturctor
 // function ParentWithStatic(){
 // }
