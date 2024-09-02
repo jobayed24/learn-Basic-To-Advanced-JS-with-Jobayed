@@ -1,14 +1,8 @@
-// bind function call the function explicitly
+'use strict'
+function log(...args){
+    console.log(this,...args);
+}
 
-const person={
-    name: 'jobayed',
-    role: 'developer',
-    age: 23,
-    getName:function(welcome,ourSite){
-        return `${welcome} ${this.name} at ${ourSite}`
-    }
-};
-
-const personName=person.getName.bind(person); // getName is standAlone function which bound the function with person object
-
-console.log(personName('Good After noon','my plateform'))
+const bind1=log.bind('hi',1,2,3);
+const bind2=bind1.bind('another hi',4,5,6);
+bind2(10,11)
