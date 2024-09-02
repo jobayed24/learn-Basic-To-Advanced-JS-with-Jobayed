@@ -1,4 +1,10 @@
-const numbers = [5, 6, 2, 3, 7];
-let max = Math.max.apply(null, numbers);
+// write a utility function with the goal of returning the array's lowest value and height.
 
-console.log(max)
+function lowAndHeightValue(arr){
+    let minValue=Math.min.apply(null,arr)
+    let heightValue=Math.max.apply(null,arr);
+    return [minValue,heightValue];
+}
+const arr=[12,444,-10];
+const [min,height]=lowAndHeightValue(arr);
+console.log(min,height)
