@@ -1,19 +1,25 @@
-class Button{
-  constructor(name){
-    this.name=name;
-    this.count=0;
-    this.handleClick=this.handleClick.bind(this);
-    this.buttonElement=document.createElement('button');
-    this.buttonElement.innerText=this.name;
-    this.buttonElement.addEventListener('click',this.handleClick)
-    document.body.appendChild(this.buttonElement)
-  }
-  handleClick(){
-    this.count++;
-    console.log(`${this.name} is clicked ${this.count} times`)
+class Configurator{
+  constructor(defaultSetting){
+    this.defaultSetting=defaultSetting;
   }
 
+  //method to apply  setting
+  applySetting(customSetting){
+    return {...this.defaultSetting,...customSetting}
+  }
 }
+const con=new Configurator({
+  theme: 'dark',
+  language: 'en',
+  layout: 'grid'
+});
 
-const buttona=new Button('Button 1')
-const buttonb=new Button('Button 2')
+
+const appliedSetting=con.applySetting.bind(con);
+const applied=appliedSetting({
+  language: 'bn',
+  layout: 'list'
+})
+console.log('after new setting applied',applied)
+
+console.log(con.defaultSetting)
