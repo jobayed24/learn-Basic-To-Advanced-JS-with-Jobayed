@@ -1,15 +1,19 @@
-// constructor function
-function Human(name,category){
-  this.name=name,
-  this.category=category
+class Button{
+  constructor(name){
+    this.name=name;
+    this.count=0;
+    this.handleClick=this.handleClick.bind(this);
+    this.buttonElement=document.createElement('button');
+    this.buttonElement.innerText=this.name;
+    this.buttonElement.addEventListener('click',this.handleClick)
+    document.body.appendChild(this.buttonElement)
+  }
+  handleClick(){
+    this.count++;
+    console.log(`${this.name} is clicked ${this.count} times`)
+  }
+
 }
 
-//set toString value
-Human.prototype.toString=function(){
-  return `${this.name} category name ${this.category}`
-};
-
-const v1=new Human('jobayed','men');
-const v2=Human.bind(null);
-console.log(new v2('tushar','women').toString())
-console.log(v1.toString())
+const buttona=new Button('Button 1')
+const buttonb=new Button('Button 2')
