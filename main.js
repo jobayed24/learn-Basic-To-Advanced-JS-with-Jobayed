@@ -1,25 +1,14 @@
-class Configurator{
-  constructor(defaultSetting){
-    this.defaultSetting=defaultSetting;
+class Notification{
+  constructor(type,sender){
+    this.type=type;
+    this.sender=sender;
   }
 
-  //method to apply  setting
-  applySetting(customSetting){
-    return {...this.defaultSetting,...customSetting}
+  show(){
+    console.log(`sending ${this.sender} from ${this.type}`);
   }
-}
-const con=new Configurator({
-  theme: 'dark',
-  language: 'en',
-  layout: 'grid'
-});
+};
 
-
-const appliedSetting=con.applySetting.bind(con);
-const applied=appliedSetting({
-  language: 'bn',
-  layout: 'list'
-})
-console.log('after new setting applied',applied)
-
-console.log(con.defaultSetting)
+const systemNotification=Notification.bind(null,'System');//predefined value of type means always set specific sender
+const emailNotification=new systemNotification('email');
+emailNotification.show()
