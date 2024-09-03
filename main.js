@@ -1,14 +1,15 @@
-class Notification{
-  constructor(type,sender){
-    this.type=type;
-    this.sender=sender;
-  }
+class Base {
+  static baseProp = "base";
+}
 
-  show(){
-    console.log(`sending ${this.sender} from ${this.type}`);
-  }
-};
+class Derived extends Base {
+  static derivedProp = "derived";
+}
 
-const systemNotification=Notification.bind(null,'System');//predefined value of type means always set specific sender
-const emailNotification=new systemNotification('email');
-emailNotification.show()
+class AnotherDerived extends Derived{
+  static anotherDeriveProp='another derived'
+}
+const and=AnotherDerived.bind(null);
+console.log(and.anotherDeriveProp)
+console.log(and.derivedProp)
+console.log(and.baseProp)
