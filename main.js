@@ -1,15 +1,15 @@
-class LateBloomer{
-  constructor(){
-    this.petalCount=Math.floor(Math.random()*12)+1;
-  }
-  bloom(){
-    setTimeout(this.declare.bind(this), 1000);
-  }
-  declare(){
-     console.log(`I am beutiful flower with ${this.petalCount} petals`);
-  }
+// constructor function
+function Human(name,category){
+  this.name=name,
+  this.category=category
 }
 
-const lateBloomer=new LateBloomer();
-// console.log(lateBloomer.petalCount)
-lateBloomer.bloom()
+//set toString value
+Human.prototype.toString=function(){
+  return `${this.name} category name ${this.category}`
+};
+
+const v1=new Human('jobayed','men');
+const v2=Human.bind(null);
+console.log(new v2('tushar','women').toString())
+console.log(v1.toString())
