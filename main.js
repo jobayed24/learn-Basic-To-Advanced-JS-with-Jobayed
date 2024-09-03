@@ -1,13 +1,13 @@
-//
-function list(...args){
-  return args;
+'use strict';
+// top level of this refer global object in strict mood
+this.x='jobayed';
+const obj={
+  x: 'tanvir',
+  getX: function(){
+    return this.x;
+  }
 }
 
-function addArguments(arg1,arg2){
-  return arg1+arg2;
-}
-
-const listBound=list.bind(null,37);
-const addBound=addArguments.bind(null,30);
-console.log(addBound(12,100))
-console.log(listBound(1,3,5))
+const getx=obj.getX; //getX unbound from obj and behave as standalone function and it refer undefined in strict mood
+const bindGetx=obj.getX.bind(obj);// bind getX to obj 
+console.log(bindGetx())
