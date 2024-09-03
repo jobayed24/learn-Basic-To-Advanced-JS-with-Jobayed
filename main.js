@@ -1,8 +1,13 @@
-'use strict'
-function log(...args){
-    console.log(this,...args);
+//
+function list(...args){
+  return args;
 }
 
-const bind1=log.bind('hi',1,2,3);
-const bind2=bind1.bind('another hi',4,5,6);
-bind2(10,11)
+function addArguments(arg1,arg2){
+  return arg1+arg2;
+}
+
+const listBound=list.bind(null,37);
+const addBound=addArguments.bind(null,30);
+console.log(addBound(12,100))
+console.log(listBound(1,3,5))
