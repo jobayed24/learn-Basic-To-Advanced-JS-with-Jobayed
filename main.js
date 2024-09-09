@@ -1,10 +1,6 @@
-const obj={
-    animal:'cats',
-    slepDuration:'12 housrs and 16 hours'
-};
+globalThis.name='jobayed hossen';
 
-function greet(){
-    console.log(this.animal,'typically sleep between',this.slepDuration);
-};
-
-greet.call(obj);
+function getName(){
+    console.log('name is',this.name);
+}
+getName.call()
