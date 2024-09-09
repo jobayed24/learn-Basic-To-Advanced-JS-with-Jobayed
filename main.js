@@ -1,15 +1,10 @@
-class Base {
-  static baseProp = "base";
-}
+const obj={
+    animal:'cats',
+    slepDuration:'12 housrs and 16 hours'
+};
 
-class Derived extends Base {
-  static derivedProp = "derived";
-}
+function greet(){
+    console.log(this.animal,'typically sleep between',this.slepDuration);
+};
 
-class AnotherDerived extends Derived{
-  static anotherDeriveProp='another derived'
-}
-const and=AnotherDerived.bind(null);
-console.log(and.anotherDeriveProp)
-console.log(and.derivedProp)
-console.log(and.baseProp)
+greet.call(obj);
