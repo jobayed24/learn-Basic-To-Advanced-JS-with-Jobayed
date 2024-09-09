@@ -1,6 +1,11 @@
-globalThis.name='jobayed hossen';
 
-function getName(){
-    console.log('name is',this.name);
+const unbound=Array.prototype.slice;
+
+const boundArray=Function.prototype.call.bind(unbound)
+
+function logArguments(){
+    const arr=boundArray(arguments);
+    console.log('arguments are',arr);
 }
-getName.call()
+
+logArguments(1,2,'jk','tanvir')
