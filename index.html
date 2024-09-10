@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <title>Learn JavaScript with Jobayed</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with Truthy/Falsy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .success {
+            color: green;
+            font-size: 1em;
+        }
+    </style>
 </head>
 
 <body>
-</body>
-<form id="userForm">
-    <input type="text" name="name" placeholder="Name">
-    <input type="email" name="email" placeholder="Email">
-    <input type="number" name="age" placeholder="Age">
-    <button type="submit">Submit</button>
-</form>
 
-<script src="./main.js"></script>
+    <h2>Form Validation Example</h2>
+
+    <form id="userForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <p id="nameError" class="error"></p>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age">
+            <p id="ageError" class="error"></p>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <p id="emailError" class="error"></p>
+        </div>
+        <button type="button" onclick="validateForm()">Submit</button>
+        <p id="successMessage" class="success"></p>
+    </form>
+
+    <script src="./main.js"></script>
+
+</body>
 
 </html>
