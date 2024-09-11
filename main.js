@@ -1,7 +1,9 @@
-class Array1{
-    static [Symbol.hasInstance](instance){
-        return Array.isArray(instance)
-    }
-}
+function Myarray(){}
 
-console.log([] instanceof Array1)
+Object.defineProperty(Myarray,Symbol.hasInstance,{
+    value(instance){
+        return Array.isArray(instance);
+    }
+})
+
+console.log([] instanceof Myarray)
