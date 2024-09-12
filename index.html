@@ -4,55 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation with Truthy/Falsy</title>
+    <title>Financial Risk Assessment Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .error {
-            color: red;
-            font-size: 0.9em;
+        input,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
         }
 
-        .success {
+        .output {
+            margin: 20px 0;
+        }
+
+        .output div {
+            margin-bottom: 10px;
+        }
+
+        .safe {
             color: green;
-            font-size: 1em;
+        }
+
+        .risky {
+            color: red;
         }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <h1>Financial Risk Assessment Tool</h1>
+        <input type="text" id="investmentInput" placeholder="Enter investment amount" />
+        <button onclick="assessRisk()">Assess Risk</button>
 
-    <h2>Form Validation Example</h2>
-
-    <form id="userForm">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input onblur="validateFormFieldOnChange()" type="text" id="name">
-            <p id="nameError" class="error"></p>
-        </div>
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input onblur="validateFormFieldOnChange()" type="number" id="age">
-            <p id="ageError" class="error"></p>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input onblur="validateFormFieldOnChange()" type="email" id="email">
-
-            <p id="emailError" class="error"></p>
-        </div>
-        <button type="button" onclick="validateForm()">Submit</button>
-        <p id="successMessage" class="success"></p>
-    </form>
+        <div class="output" id="output"></div>
+    </div>
 
     <script src="./main.js"></script>
-
 </body>
 
 </html>
