@@ -1,9 +1,14 @@
-function Myarray(){}
-
-Object.defineProperty(Myarray,Symbol.hasInstance,{
-    value(instance){
-        return Array.isArray(instance);
+const obj={
+    firstName: 'jobayed',
+    lastName: 'hossen',
+    fullName:function(){
+        return this.firstName+" "+ this.lastName;
+    },
+    [Symbol.toPrimitive](hint){
+        if(hint==='number'){
+            return 42;
+        }
+        return null;
     }
-})
-
-console.log([] instanceof Myarray)
+}
+console.log(+obj)
