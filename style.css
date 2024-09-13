@@ -1,13 +1,20 @@
-a::after{
-    content: '('attr(href)')';
+.exciting-text::after{
+    content: "<-- Exciting";
+    color: green;
+}
+.boring-text::after{
+    content: "<--Boring";
+    color:red;
 }
 
-.dead-link{
-    text-decoration: line-through;
+.ribbon{
+    background-color: #5bc8f7;
 }
-.dead-link::after{
-    content: 'jk';
-    display: inline-block;
-    height: 12px;
-    width: 12px;
+
+.ribbon::after{
+    content: "This is fancy orange box";
+    background-color: #ffba10;
+    border-color: black;
+    border-style: dotted;
+
 }
