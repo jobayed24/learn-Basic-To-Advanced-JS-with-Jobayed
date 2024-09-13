@@ -1,20 +1,23 @@
-.exciting-text::after{
-    content: "<-- Exciting";
-    color: green;
-}
-.boring-text::after{
-    content: "<--Boring";
-    color:red;
-}
+span[data-descr] {
+   position: relative;
+   text-decoration: underline;
+   color: blue;
+   cursor: help;
+  }
 
-.ribbon{
-    background-color: #5bc8f7;
-}
-
-.ribbon::after{
-    content: "This is fancy orange box";
-    background-color: #ffba10;
-    border-color: black;
-    border-style: dotted;
+span[data-descr]:hover::after,
+span[data-descr]:focus::after{
+    content: attr(data-descr);
+    position:absolute;
+    left: 0;
+    top: 25px;
+    background-color: #ffffcc;
+    min-width: 200px;
+    border: #cccccc solid;
+    border-radius: 10px;
+    padding: 12px;
+    z-index: 1;
+    color: #000000;
+    font-size: 14px;
 
 }
