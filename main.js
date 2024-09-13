@@ -1,9 +1,8 @@
-const cart = ["apple", "banana", "pear"];
+const arrayLike = {
+    length: 2,
+    0: "a",
+    1: "b",
+    2: "c", // ignored by at() since length is 2
+  };
 
-//return last element
-console.log(cart[cart.length-2])
-
-const getBanana=cart.slice(-2,-1);
-console.log(getBanana);
-
-console.log(cart.at(-2))
+  console.log(Array.prototype.at.call(arrayLike,0))
