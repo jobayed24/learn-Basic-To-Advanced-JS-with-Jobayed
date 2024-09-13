@@ -1,27 +1,13 @@
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+a::after{
+    content: '('attr(href)')';
 }
 
-.top-container {
-    background-color: #f1f1f1;
-    padding: 30px;
-    text-align: center;
+.dead-link{
+    text-decoration: line-through;
 }
-
-.header {
-    padding: 10px 16px;
-    background: #555;
-    color: #f1f1f1;
+.dead-link::after{
+    content: 'jk';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
 }
-
-.content {
-    padding: 16px;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
