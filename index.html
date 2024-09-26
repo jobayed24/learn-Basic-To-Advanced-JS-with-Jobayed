@@ -4,19 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Risk Assessment Tool</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Product Carousel</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .carousel-container {
+            width: 250px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .items {
+            display: flex;
+            padding: 2px 5px;
+            background-color: #f9f9f9;
+            border: 1px solid rgb(222, 179, 179);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+        }
+
+
+
+        button {
+            padding: 2px 4px;
+            color: black;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <ul>
-        <li>Take the dog for a walk</li>
-        <li>Buy milk</li>
-        <li>Exercise</li>
-        <li>Write code</li>
-        <li>Play music</li>
-        <li>Relax</li>
-    </ul>
+
+    <h1>Product Carousel</h1>
+
+    <div class="carousel-container" id="carousel">
+        <!-- Carousel Items will be displayed here -->
+    </div>
+
+    <div class="buttons">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
     <script src="./main.js"></script>
 </body>
 
