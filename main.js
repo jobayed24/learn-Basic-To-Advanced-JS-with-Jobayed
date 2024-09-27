@@ -1,37 +1,44 @@
-const products = ["Product1", "Product2", "Product3", "Product4", "Product5", "Product6"];
+let products =["./1.png","./2.png","./3.png","./4.png","./5.png","./6.png",]
+
+
+console.log(products)
+
+let getCarousel=document.getElementById('carousel');
+let nextButton=document.getElementById('nextBtn')
+let prevButton=document.getElementById('prevBtn');
 let carouselView=products.slice(0,3);
-const carouselContainer=document.getElementById('carousel');
-const nextButton=document.getElementById('nextBtn');
-const prevButton=document.getElementById('prevBtn');
-function disPlayProducts(){
-    carouselContainer.innerText=''
-    carouselView.forEach((product)=>{
-        const div=document.createElement('div');
-        div.classList.add('items')
-        div.innerText=product;
-        carouselContainer.appendChild(div);
+function displayProducts(){
+    getCarousel.innerText=''
+    carouselView.forEach((item)=>{
+        let motherDiv=document.createElement('div');
+
+        let createImg=document.createElement('img');
+        let createTitle=document.createElement('div');
+        createTitle.innerText=item;
+        createImg.src=item
+        createImg.width='200';
+        createImg.height='150'
+        createImg.classList.add('item');
+        motherDiv.appendChild(createImg)
+        motherDiv.appendChild(createTitle)
+        getCarousel.appendChild(motherDiv);
     })
-    
 }
+displayProducts();
 
-function nextProduct(){
-    let rememberPrevProduct=products[0];
-    products.shift();
-    carouselView=products.slice(0,3);
-    products.push(rememberPrevProduct);
-    disPlayProducts()
-    
+function nextButtonClick(){
+        let getFirstProduct=products[0];
+        products.shift();
+        carouselView=products.slice(0,3);
+        products.push(getFirstProduct);
+        displayProducts()
 }
-function prevProduct(){
-    let rememberNextProduct=products[products.length-1];
-    console.log(rememberNextProduct)
+function prevButtonClick(){
+    let getLastProduct=products[products.length-1];
     products.pop();
-    products.unshift(rememberNextProduct)
-    carouselView=products.slice(0,3);
-    disPlayProducts()
-    
+    products.unshift(getLastProduct);
+    carouselView=products.slice(0,3)
+    displayProducts()
 }
-nextButton.addEventListener('click',nextProduct)
-prevButton.addEventListener('click',prevProduct)
-
-disPlayProducts();
+prevButton.addEventListener('click',prevButtonClick)
+nextButton.addEventListener('click',nextButtonClick)
